@@ -5,7 +5,7 @@ const moment = require("moment");
 const sortProduct = input => {
 	var output = {};
 
-  	input.reduce( item => {
+  	input.map( item => {
   		var dateMoment = moment(item.dateAdded);
   		if(dateMoment.year() > 2000){
   			var newItem = { name: item.name, 
@@ -13,13 +13,16 @@ const sortProduct = input => {
   							monthOfYear: dateMoment.month()+1, 
   							quantity: item.quantity };
   			var itemName = item.name;
-  			output.itemName.push(newItem);
-  			console.log(output);
+        if( output[itemName] === undefined){output[itemName] = []}
+        output[itemName].push(newItem)
+        output[itemName].sort(function(a, b) {
+           return a.year;
+        });
   		}
   	});
 
   console.log(output);
-  return output; // ça devrait marcher 
+  return output; 
 };
 
 module.exports = {
