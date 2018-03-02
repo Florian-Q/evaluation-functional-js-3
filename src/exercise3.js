@@ -1,7 +1,16 @@
 const _ = require("lodash");
 
 const meeteek = input => {
-  // Your future job begins here ...
+	var output = {}
+ 	input.map(value => {
+ 		var newItem = { firstname: value.firstname, 
+  						commonInterests: []
+  					};
+	  	var name = value.firstname;
+	  	if( output[name] === undefined){output[name] = []}
+	  	output[name].push(newItem);
+	  	console.log(output);
+  });
 };
 
 module.exports = {
