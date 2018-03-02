@@ -1,6 +1,6 @@
 const _ = require("lodash");
 
-const meeteek = input => {
+const meeteek = input => { 
 	var output = {}
  	input.map(value => {
  		var newItem = { firstname: value.firstname, 
@@ -10,6 +10,7 @@ const meeteek = input => {
 	  	if( output[name] === undefined){output[name] = []}
 	  	output[name].push(newItem);
 	  	console.log(output);
+	  	return output; // pas eu le temps de finir :,(
   });
 };
 
